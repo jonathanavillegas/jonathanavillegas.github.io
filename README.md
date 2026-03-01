@@ -46,7 +46,7 @@ Portfolio/
 ├── styles.css          # Styling
 ├── README.md          # This file
 ├── projects/          # Project detail pages
-│   └── cfd.html       # CFD project details
+│   └── heat_transfer.html       # Heat Transfer project details
 └── images/            # Project images (create as needed)
 ```
 

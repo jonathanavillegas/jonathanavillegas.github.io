@@ -185,21 +185,31 @@
         }
         
         .sidebar li.has-children > a {
-            cursor: pointer;
             position: relative;
             padding-right: 1.5rem;
         }
         
-        .sidebar li.has-children > a::after {
-            content: '▶';
+        .sidebar li.has-children > a .collapse-arrow {
             position: absolute;
             right: 0.5rem;
             font-size: 0.7rem;
-            transition: transform 0.2s ease;
             color: #666;
+            cursor: pointer;
+            user-select: none;
+            pointer-events: auto;
+            padding: 0.2rem 0.3rem;
+            margin: -0.2rem -0.3rem;
         }
         
-        .sidebar li.has-children:not(.collapsed) > a::after {
+        .sidebar li.has-children.collapsed > a .collapse-arrow {
+            display: inline;
+        }
+        
+        .sidebar li.has-children.collapsed > a .collapse-arrow::after {
+            content: '▶';
+        }
+        
+        .sidebar li.has-children:not(.collapsed) > a .collapse-arrow::after {
             content: '▼';
         }
         
@@ -310,6 +320,29 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .project-card-image {
+            flex: 0 0 300px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-card-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .image-arrow {
+            font-size: 1.5rem;
+            color: #1e88e5;
+            line-height: 1;
+            margin: 0.25rem 0;
         }
         
         .project-card:hover {
@@ -592,6 +625,12 @@
                 max-width: 100%;
             }
             
+            .project-card-image {
+                flex: 1;
+                width: 100%;
+                max-width: 100%;
+            }
+            
             .content-wrapper {
                 flex-direction: column;
             }
@@ -645,7 +684,7 @@
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li class="has-children">
-                    <a href="#projects">Projects</a>
+                    <a href="#projects">Projects<span class="collapse-arrow"></span></a>
                     <ul>
                         <li><a href="#project-heat-transfer">Heat Transfer Modeling</a></li>
                         <li><a href="#project-aerodynamics">Finite Wing Aerodynamics</a></li>
@@ -653,7 +692,7 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <a href="#experience">Experience</a>
+                    <a href="#experience">Experience<span class="collapse-arrow"></span></a>
                     <ul>
                         <li><a href="#exp-naval-nuclear">Naval Nuclear Laboratory</a></li>
                         <li><a href="#exp-eden-geopower">Eden GeoPower</a></li>
@@ -672,8 +711,8 @@
         <div class="about-content">
             <div class="about-text">
                 <p>I am a Thermal/Hydraulic Nuclear Engineer at Naval Nuclear Laboratory. I model fluid and thermal behavior in nuclear reactors and analyze thermal effects to optimize reactor performance.</p>
-                <p>I'm passionate about solving thermal engineering problems with applications in clean energy and aerodynamics. My experience spans nuclear engineering, thermal analysis, and computational modeling, with a strong foundation in thermodynamics, fluid mechanics, and heat/mass transfer.</p>
                 <p>I graduated Magna Cum Laude with a B.S.E. in Mechanical Engineering from the University of Pennsylvania in 2025. I concentrated in Energy, Fluids, & Thermal Systems and minored in Mathematics. In my spare time, I like to hike sections of the Appalachian Trail, cook coconut curry, and paint portraits</p>
+                <p>I'm passionate about solving thermal engineering problems with applications in clean energy and aerodynamics. My experience spans nuclear engineering, thermal analysis, and computational modeling, with a strong foundation in thermodynamics, fluid mechanics, and heat/mass transfer.</p>
             </div>
             <div class="profile-picture">
                 <img src="pics/profile_pic.JPG" alt="Jonathan Villegas" onerror="this.style.display='none'">
@@ -690,7 +729,7 @@
                     <p>This Python package provides comprehensive thermal modeling capabilities for steady-state and transient thermal analysis, with specialized capabilities for modeling ablative materials used in spacecraft heat shields. Features include 1D/2D steady-state and transient solvers, 3D cylindrical heat shield simulations, and advanced ablation physics with material sublimation modeling.</p>
                     <div class="project-links">
                         <a href="https://github.com/jonathanavillegas/cfd" target="_blank">GitHub</a>
-                        <a href="projects/cfd.html">Details</a>
+                        <a href="projects/heat_transfer.html">Details</a>
                     </div>
                     <div class="tech-stack">
                         <span class="tech-tag">Heat Transfer Modeling</span>
@@ -710,18 +749,24 @@
             <div class="project-card" id="project-aerodynamics">
                 <div class="project-card-content">
                     <h3>Finite Wing Aerodynamics</h3>
-                    <p>MATLAB implementation of panel method solver for finite wing aerodynamics analysis. Features include lift distribution calculations, induced velocity analysis, and propeller-wing interaction modeling. The solver uses iterative vortex panel methods to compute circulation distributions and quantify the effects of propeller slipstream on wing performance.</p>
+                    <p>Numerical lifting line analysis for dual-propeller wing performance evaluation. The solver uses lifiting line theory and NACA 0012 airfoil data to analyze lift distribution, induced velocity, and stall characteristics. The analysis examines propeller-wing interaction effects, quantifying how propeller thrust affects circulation distributions and lift coefficients across various thrust levels.</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">GitHub</a>
+                        <a href="https://github.com/jonathanavillegas/aerodynamics" target="_blank">GitHub</a>
                         <a href="projects/aerodynamics.html">Details</a>
                     </div>
                     <div class="tech-stack">
+                        <span class="tech-tag">Finite Wing Analysis</span>
+                        <span class="tech-tag">Lifting Line Theory</span>
+                        <span class="tech-tag">Aerodynamics</span>
                         <span class="tech-tag">MATLAB</span>
                         <span class="tech-tag">Panel Methods</span>
-                        <span class="tech-tag">Aerodynamics</span>
-                        <span class="tech-tag">Vortex Methods</span>
-                        <span class="tech-tag">Propeller Theory</span>
+                        <span class="tech-tag">Numerical Methods</span>
                     </div>
+                </div>
+                <div class="project-card-image">
+                    <img src="projects/pics/wing_geometry.png" alt="Wing Geometry" onerror="this.style.display='none'">
+                    <div class="image-arrow">↓</div>
+                    <img src="projects/pics/horseshoe_vertices.png" alt="Horseshoe Vortices" onerror="this.style.display='none'">
                 </div>
             </div>
             
@@ -893,13 +938,19 @@
                 
                 if (!link || link.tagName !== 'A') return;
                 
-                // Prevent default navigation when clicking on parent items
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    item.classList.toggle('collapsed');
-                });
+                // Find the collapse arrow within the link
+                const arrow = link.querySelector('.collapse-arrow');
                 
+                if (arrow) {
+                    // Clicking the arrow should toggle collapse and prevent navigation
+                    arrow.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        item.classList.toggle('collapsed');
+                    });
+                }
+                
+                // The link itself should navigate normally (no preventDefault)
                 // Allow child links to navigate normally
                 const childLinks = item.querySelectorAll('ul a');
                 childLinks.forEach(childLink => {

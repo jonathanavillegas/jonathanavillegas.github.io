@@ -188,21 +188,31 @@
         }
         
         .sidebar li.has-children > a {
-            cursor: pointer;
             position: relative;
             padding-right: 1.5rem;
         }
         
-        .sidebar li.has-children > a::after {
-            content: '▶';
+        .sidebar li.has-children > a .collapse-arrow {
             position: absolute;
             right: 0.5rem;
             font-size: 0.7rem;
-            transition: transform 0.2s ease;
             color: #666;
+            cursor: pointer;
+            user-select: none;
+            pointer-events: auto;
+            padding: 0.2rem 0.3rem;
+            margin: -0.2rem -0.3rem;
         }
         
-        .sidebar li.has-children:not(.collapsed) > a::after {
+        .sidebar li.has-children.collapsed > a .collapse-arrow {
+            display: inline;
+        }
+        
+        .sidebar li.has-children.collapsed > a .collapse-arrow::after {
+            content: '▶';
+        }
+        
+        .sidebar li.has-children:not(.collapsed) > a .collapse-arrow::after {
             content: '▼';
         }
         
@@ -354,6 +364,205 @@
             box-shadow: 0 6px 12px rgba(30, 136, 229, 0.4);
         }
         
+        .equation-table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        
+        .equation-table th {
+            background: #1e3c72;
+            color: white;
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .equation-table td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .equation-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .equation-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .equation-table .variable {
+            font-weight: 600;
+            color: #1e3c72;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .equations-layout {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            align-items: flex-start;
+        }
+        
+        .equations-column {
+            flex: 1;
+        }
+        
+        .table-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .project-image {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .project-image.small {
+            max-width: 500px;
+            margin: 1rem auto;
+        }
+        
+        .project-image.smaller {
+            max-width: 350px;
+            margin: 1rem auto;
+        }
+        
+        .method-section {
+            margin: 2rem 0;
+        }
+        
+        .method-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-left: 4px solid #1e88e5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .method-card:hover {
+            border-color: #1e88e5;
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .method-card h5 {
+            color: #1e3c72;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+        
+        .method-card p {
+            margin: 0.5rem 0;
+            color: #555;
+            font-size: 1rem;
+        }
+        
+        .method-card ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .method-card li {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+        
+        .geometry-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 1.5rem 0;
+        }
+        
+        .geometry-list {
+            flex: 0 0 350px;
+        }
+        
+        .geometry-image {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .geometry-image img {
+            width: auto;
+            max-width: 480px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .panel-method-content {
+            overflow: hidden;
+        }
+        
+        .panel-method-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .horseshoe-image {
+            float: right;
+            width: auto;
+            max-width: 480px;
+            height: auto;
+            margin: 0 0 0.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .lift-aoa-image {
+            float: right;
+            width: auto;
+            max-width: 350px;
+            height: auto;
+            margin: 0 0 0.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 968px) {
+            .horseshoe-image {
+                float: none;
+                display: block;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+            
+            .lift-aoa-image {
+                float: none;
+                display: block;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+            
+            .geometry-layout {
+                flex-direction: column;
+            }
+            
+            .geometry-image {
+                max-width: 100%;
+            }
+            
+            .equations-layout {
+                flex-direction: column;
+            }
+        }
+        
         @media (max-width: 1000px) {
             .content-wrapper {
                 flex-direction: column;
@@ -387,7 +596,7 @@
     
     <div class="project-header">
         <h1>Finite Wing Aerodynamics</h1>
-        <p class="subtitle">Panel Method Implementation for Wing Performance Analysis</p>
+        <p class="subtitle">Wing Performance Analysis Using Lifting Line Theory</p>
         <p class="applications">Aerodynamics • Propeller-Wing Interaction • Lift Distribution Analysis</p>
     </div>
 
@@ -395,107 +604,345 @@
         <div class="sidebar">
             <h5>Contents</h5>
             <ul>
-                <li><a href="#overview" class="h2-link">Overview</a></li>
-                <li><a href="#key-features" class="h3-link">Key Features</a></li>
                 <li class="has-children">
-                    <a href="#use-case" class="h2-link">Demonstrated Use Case</a>
+                    <a href="#use-case" class="h2-link">Finite Wing Analysis<span class="collapse-arrow"></span></a>
                     <ul>
-                        <li><a href="#mission" class="h3-link">The Mission</a></li>
+                        <li><a href="#mission" class="h3-link">The Problem</a></li>
+                        <li><a href="#solution" class="h3-link">The Solution</a></li>
                         <li class="has-children">
-                            <a href="#methodology" class="h3-link">Model Methodology</a>
+                            <a href="#wing-geometry" class="h3-link">Wing Geometry & Operating Conditions<span class="collapse-arrow"></span></a>
                             <ul>
-                                <li><a href="#panel-method" class="h4-link">Panel Method</a></li>
-                                <li><a href="#propeller-effects" class="h4-link">Propeller Effects</a></li>
-                                <li><a href="#numerical-solution" class="h4-link">Numerical Solution</a></li>
+                                <li><a href="#airfoil-data" class="h4-link">NACA 0012 Airfoil Data</a></li>
                             </ul>
                         </li>
-                        <li><a href="#results" class="h3-link">Results</a></li>
+                        <li class="has-children">
+                            <a href="#methodology" class="h3-link">Methods<span class="collapse-arrow"></span></a>
+                            <ul>
+                                <li><a href="#panel-method" class="h4-link">Discretization of the Wing</a></li>
+                                <li><a href="#numerical-solution" class="h4-link">Numerical Implementation</a></li>
+                                <li><a href="#propeller-effects" class="h4-link">Propeller Wake Velocity Calculation</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#results" class="h3-link">Results<span class="collapse-arrow"></span></a>
+                            <ul>
+                                <li><a href="#results-no-propellers" class="h4-link">Wing Performance Without Propellers</a></li>
+                                <li><a href="#results-with-propellers" class="h4-link">Wing Performance With Propellers</a></li>
+                                <li><a href="#key-findings" class="h4-link">Key Findings & Physical Interpretation</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
-                <li><a href="#model-efficacy" class="h2-link">Model Efficacy</a></li>
-                <li><a href="#future-work" class="h2-link">Future Work</a></li>
                 <li><a href="#technologies" class="h2-link">Technologies & Tools</a></li>
                 <li><a href="#links" class="h2-link">Project Links</a></li>
             </ul>
         </div>
 
         <div class="project-content">
-            <h2 id="overview">A computational aerodynamics analysis tool for finite wing performance</h2>
-            <p>This MATLAB implementation provides comprehensive finite wing aerodynamics analysis using panel methods. The solver calculates lift distributions, induced velocities, and effective angles of attack, with specialized capabilities for modeling propeller-wing interactions and their effects on wing performance.</p>
+            <h2 id="use-case">Dual-Propeller Wing Performance Analysis</h2>
 
-            <div class="highlight-box">
-                <h3 id="key-features">Key Features</h3>
-                <div class="applications-grid">
-                    <div class="application-card">
-                        <h4>Panel Method Solver</h4>
-                        <p>Discretized wing span analysis using vortex panel methods to calculate circulation distribution and induced velocities</p>
+            <h3 id="mission">The Problem</h3>
+            <p>During the preliminary design phase of a small UAV, the team developed a design featuring a wing with two thrusting propellers (1.22 m (4 ft) diameter) at the wing tips, designed to operate at 51.44 m/s (100 knots) and an angle of attack of 8 degrees. A technical leader raised concerns about the wing's overall performance, in particular the effect of propeller-on-wing interference on lift distribution and stall characteristics.</p>
+            
+            <h3 id="solution">The Solution</h3>
+            <p>A numerical lifting line analysis was implemented to better understand the performance of the wing with and without the effect of the propellers. The analysis discretized the wing into 100 horseshoe vortices (panels) and used NACA 0012 airfoil $C_l$ vs. $\alpha$ data to understand at what effective angle of attack the wing starts to stall. The analysis also examined how local wing $C_l$ distribution changes as a function of angle of attack and propeller thrust.</p>
+            
+            <h3 id="wing-geometry">Wing Geometry & Operating Conditions</h3>
+            <div class="method-card">
+                <div class="geometry-layout">
+                    <div class="geometry-list">
+                        <ul>
+                            <li><strong>Wing Span:</strong> 3.05 m (10 ft)</li>
+                            <li><strong>Chord Length:</strong> 0.4572 m (1.5 ft)</li>
+                            <li><strong>Aspect Ratio:</strong> 6.67</li>
+                            <li><strong>Airfoil:</strong> NACA 0012</li>
+                            <li><strong>Operating Speed:</strong> 51.44 m/s (100 knots)</li>
+                            <li><strong>Design Angle of Attack:</strong> 8°</li>
+                            <li><strong>Propeller Diameter:</strong> 1.22 m (4 ft)</li>
+                            <li><strong>Propeller Radius:</strong> 0.6096 m (2 ft)</li>
+                            <li><strong>Altitude:</strong> 10,668 m (35,000 ft, density: 0.364 kg/m³)</li>
+                        </ul>
                     </div>
-                    <div class="application-card">
-                        <h4>Propeller-Wing Interaction</h4>
-                        <p>Analysis of propeller slipstream effects on wing performance, including velocity augmentation in propeller wake regions</p>
+                    <div class="geometry-image">
+                        <img src="pics/wing_geometry.png" alt="Wing Geometry" onerror="this.style.display='none'">
                     </div>
-                    <div class="application-card">
-                        <h4>Lift Distribution Analysis</h4>
-                        <p>Spanwise lift coefficient and circulation distribution calculations with iterative convergence to steady-state solutions</p>
+                </div>
+            </div>
+
+            <h4 id="airfoil-data">NACA 0012 Airfoil Data</h4>
+            <div style="overflow: hidden;">
+                <img src="pics/liftvAoA.png" alt="Lift vs Angle of Attack" class="lift-aoa-image" onerror="this.style.display='none'">
+                <p>The analysis uses experimental NACA 0012 airfoil data at $Re = 1.8 \times 10^6$ (from NACA Technical Note 3361). Rather than using the thin airfoil assumption, the lift coefficient is interpolated from tabulated experimental data that includes stall effects. This approach allows the model to capture realistic airfoil behavior across the entire operating range, including the critical stall region.</p>
+            </div>
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                Source: <a href="https://apps.dtic.mil/sti/tr/pdf/ADA377080.pdf" target="_blank" style="color: #1e88e5;">Critzos, C. C., Heyson, H. H., & Boswinkle, R. W. (1955). Aerodynamic Characteristics of NACA 0012 Airfoil Section at Angles of Attack from 0° to 180°. NACA Technical Note 3361. Langley Aeronautical Laboratory.</a>
+            </p>
+
+            <h3 id="methodology">Methods</h3>
+
+            <h4 id="panel-method">Discretization of the Wing</h4>
+            <div class="panel-method-content">
+                <img src="pics/horseshoe_vertices.png" alt="Horseshoe Vortices" class="horseshoe-image" onerror="this.style.display='none'">
+                <p>The wing is idealized as a collection of overlapping horseshoe vortices. Each horseshoe has a "bound" vortex at the wings leading edge and two "trail" vertices extending downstream. These vorticies create a stepwise circulation distribution along the wing span.</p>
+                <p>The numerical analysis calculates the effect of all each trailing vortex on a series of collocation points to determine the induced velocity or downwash. The induced velocity is then used to find the effective angle of attack at each location and the lift coefficient of the wing.</p>
+            </div>
+            <div class="method-card">             
+                <h5>Boundary Conditions</h5>
+                <ul>
+                    <li>Trailing vortex at wing root: $\Gamma_t = \Gamma_1$ (first panel circulation)</li>
+                    <li>Trailing vortex at wing tip: $\Gamma_t = -\Gamma_N$ (last panel circulation, negative)</li>
+                    <li>Intermediate trailing vortices: $\Gamma_t = \Gamma_i - \Gamma_{i-1}$</li>
+                </ul>
+            </div>
+            <h4 id="numerical-solution">Numerical Implementation</h4>
+            <p>An iterative process is used to solve for the circulation and induced velocity distribution:</p>
+            <div class="method-card">
+                <ol>
+                    <li><strong>Initialization:</strong> Start with zero induced velocity assumption and calculate initial circulation from geometric angle of attack:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$\Gamma = \frac{C_l V_{\infty} c}{2}$$
+                        </div>
+                    </li>
+                    <li><strong>Trailing Vortex Calculation:</strong> Compute trailing vortex strength as the difference in bound circulation between adjacent panels:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$\Gamma_{t,i} = \Gamma_i - \Gamma_{i-1}$$
+                        </div>
+                    </li>
+                    <li><strong>Induced Velocity:</strong> Calculate induced velocity at each panel collocation point using Biot-Savart law for all trailing vortices:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$w_i = \sum_{j=1}^{N} \frac{\Gamma_{t,j}}{4\pi r}$$
+                        </div>
+                    </li>
+                    <li><strong>Effective Angle of Attack:</strong> Update effective angle of attack accounting for induced downwash:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$\alpha_i = -\frac{v_i}{V_{\infty}} \cdot \frac{\pi}{180}, \quad \alpha_{\text{eff}} = \alpha_g - \alpha_i$$
+                        </div>
+                    </li>
+                    <li><strong>Lift Coefficient:</strong> Interpolate airfoil $C_l$ from NACA 0012 data based on effective angle of attack:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$C_l = f(\alpha_{\text{eff}})$$
+                        </div>
+                    </li>
+                    <li><strong>Circulation Update:</strong> Calculate new bound circulation:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$\Gamma = \frac{C_l V_{\infty} c}{2}$$
+                        </div>
+                    </li>
+                    <li><strong>Convergence Check:</strong> Iterate until circulation distribution converges to within 0.05% of the previous iteration:
+                        <div style="text-align: center; margin: 0.75rem 0; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                            $$\left|\frac{\Gamma^{n+1} - \Gamma^n}{\Gamma^n}\right| < 0.0005$$
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <h4 id="propeller-effects">Propeller Wake Velocity Calculation</h4>
+            <p>Propeller slipstream creates an accelerated flow region behind the propeller disk. The wake is assumed to be uniformly distributed in a cylinder behind the propeller, affecting the portion of the wing within the wake region (within 0.914 m (3 ft) of each wing tip).</p>
+            
+            <div class="equations-layout">
+                <div class="equations-column">
+                    <div style="text-align: center; margin: 1rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+                        $$
+                        \frac{v_i}{v_h} = -\left(\frac{V_{\infty}}{2v_h}\right) + \sqrt{\left(\frac{V_{\infty}}{2v_h}\right)^2 + 1}
+                        $$
                     </div>
-                    <div class="application-card">
-                        <h4>Comparative Studies</h4>
-                        <p>Side-by-side comparison of wing performance with and without propeller effects to quantify interaction benefits</p>
+                    
+                    <div style="text-align: center; margin: 1rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+                        $$
+                        v_h = \sqrt{\frac{T}{2\rho\pi R^2}}
+                        $$
+                    </div>
+                </div>
+                
+                <div class="table-column">
+                    <div style="margin: 1rem 0;">
+                        <table class="equation-table">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Description</th>
+                                    <th>Units</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="variable">v<sub>i</sub></td>
+                                    <td>Propeller wake velocity</td>
+                                    <td>m/s</td>
+                                </tr>
+                                <tr>
+                                    <td class="variable">v<sub>h</sub></td>
+                                    <td>Hover velocity (characteristic velocity)</td>
+                                    <td>m/s</td>
+                                </tr>
+                                <tr>
+                                    <td class="variable">V<sub>∞</sub></td>
+                                    <td>Freestream velocity</td>
+                                    <td>m/s</td>
+                                </tr>
+                                <tr>
+                                    <td class="variable">T</td>
+                                    <td>Propeller thrust</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td class="variable">ρ</td>
+                                    <td>Air density</td>
+                                    <td>kg/m³</td>
+                                </tr>
+                                <tr>
+                                    <td class="variable">R</td>
+                                    <td>Rotor radius</td>
+                                    <td>m</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
             
-            <h2 id="use-case">Demonstrated Use Case: Propeller-Wing Interaction Analysis</h2>
-
-            <h3 id="mission">The Mission</h3>
-            <p>Analyze the aerodynamic performance of a finite wing with and without propeller effects to understand how propeller slipstream enhances lift generation and affects spanwise lift distribution.</p>
-
-            <h3 id="methodology">Model Methodology</h3>
-
-            <h4 id="panel-method">Panel Method</h4>
-            <p>The wing is discretized into panels along the span, with each panel represented by a bound vortex. The trailing vortices extend downstream, creating an induced velocity field that affects the effective angle of attack at each panel location.</p>
-
-            <h4 id="propeller-effects">Propeller Effects</h4>
-            <p>Propeller slipstream creates an accelerated flow region behind the propeller disk. The velocity augmentation is calculated using actuator disk theory, where the velocity behind the propeller is determined by the thrust, propeller radius, and freestream conditions.</p>
-
-            <h4 id="numerical-solution">Numerical Solution</h4>
-            <p>The solution is obtained through an iterative process:</p>
-            <ul>
-                <li><strong>Initialization:</strong> Start with zero induced velocity assumption</li>
-                <li><strong>Circulation Calculation:</strong> Compute bound vortex strength from effective angle of attack and lift coefficient</li>
-                <li><strong>Induced Velocity:</strong> Calculate induced velocity at each panel from trailing vortices</li>
-                <li><strong>Convergence:</strong> Iterate until circulation distribution converges to steady-state</li>
-            </ul>
+            <p>The total velocity seen by wing panels in the propeller wake is: $V_{\text{total}} = v_i + V_{\infty}$</p>
 
             <h3 id="results">Results</h3>
-            <p>The analysis reveals significant differences in lift distribution between cases with and without propeller effects. The propeller slipstream increases local velocities in the wake region, leading to enhanced lift generation and modified spanwise lift distribution.</p>
-
-            <h2 id="model-efficacy">Model Efficacy</h2>
-            <p>The panel method implementation successfully captures the essential physics of finite wing aerodynamics, including three-dimensional effects and propeller-wing interactions. The iterative solver converges to stable solutions, providing accurate lift distributions and performance metrics.</p>
-
-            <h2 id="future-work">Future Work</h2>
-            <p>Future enhancements could include unsteady aerodynamics, compressibility effects, and more sophisticated propeller models incorporating rotational effects and non-uniform slipstream distributions.</p>
-
+            
+            <h4 id="results-no-propellers">Wing Performance Without Propellers</h4>
+            <p>The baseline analysis examines wing performance without propeller effects at the design angle of attack of $8°$.</p>
+            
+            <div class="method-card">
+                <h5>Circulation, Lift, and Induced Velocity Distributions</h5>
+                <p>The induced velocity distribution shows negative velocity values across the entire wing span, with the magnitude increasing towards the wing edges (tips). This behavior is physically consistent with the three-dimensional flow effects:</p>
+                <ul>
+                    <li>Induced velocity represents the downwash caused by trailing vortices</li>
+                    <li>The negative values indicate downward flow (downwash) that reduces the effective angle of attack</li>
+                    <li>The increasing magnitude towards the wing tips reflects the stronger vortex effects at the wing edges, where air "creeps around" the edges towards the low-pressure region on top of the wing</li>
+                    <li>The overall $C_l$ value of the no-propeller case is .8269, which is consistent with the experimental data from NACA Technical Note 3361.</li>
+                </ul>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
+                <div style="text-align: center;">
+                    <img src="pics/no_propeller-gamma-8.png" alt="No Propeller Gamma Distribution" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Circulation (Γ) Distribution</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="pics/no_propeller-cl-8.png" alt="No Propeller Lift Coefficient Distribution" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Lift Coefficient (C_l) Distribution</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="pics/no_propeller-vi-8.png" alt="No Propeller Induced Velocity Distribution" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Induced Velocity Distribution</p>
+                </div>
+            </div>
+            
+            <h4 id="results-with-propellers">Wing Performance With Propellers</h4>
+            <p>When propellers are attached to either end of the wing, the analysis accounts for the increased wake velocity behind each propeller. The wake is assumed to be uniformly distributed in a cylinder behind the propeller, creating a region of accelerated flow that affects wing sections within the propeller wake.</p>
+            
+            <div class="method-card">
+                <h5>Effect of Varying Propeller Thrust</h5>
+                <p>To understand how propeller thrust affects wing performance, the analysis was conducted at three thrust levels: $200 \text{ N}$, $500 \text{ N}$, and $800 \text{ N}$ per propeller.</p>
+                
+                <h5>Circulation (Gamma) Distribution</h5>
+                <ul>
+                    <li><strong>Center Wing Behavior:</strong> The gamma values in the middle portion of the wing remain largely unchanged across all thrust levels, staying constant at approximately $9.8 \text{ m}^2/\text{s}$</li>
+                    <li><strong>Propeller Region Effects:</strong> As thrust increases, there is a corresponding increase in gamma at the portions of the wing covered by the propeller wake</li>
+                    <li><strong>Physical Explanation:</strong> Higher thrust leads to greater wake velocity, which in turn produces greater circulation in the affected wing sections</li>
+                </ul>
+                
+                <h5>Lift Coefficient ($C_l$) Distribution</h5>
+                <ul>
+                    <li><strong>Center Portion:</strong> The $C_l$ values in the center portion of the wing are similar to those observed in the no-propeller case</li>
+                    <li><strong>Propeller Regions:</strong> Surprisingly, the regions covered by the propellers (experiencing increased flow velocity) have <strong>smaller</strong> $C_l$ values than the middle portions of the wing</li>
+                    <li><strong>Thrust Independence:</strong> Increasing thrust from $200 \text{ N}$ to $800 \text{ N}$ has minimal effect on the $C_l$ distribution, with the graphs remaining relatively constant across all cases. The overall $C_l$ values of the propeller analysis were .8278, .8279, and .8281. Suprinsingly, they are only marginally different than the no-propeller case (.8269).</li>
+                </ul>
+            </div>
+            
+            <div style="margin: 2rem 0;">
+                <h5 style="margin-bottom: 1.5rem;">200 N Thrust per Propeller</h5>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-gamma-8-200.png" alt="Propeller Gamma 200N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Circulation (Γ) Distribution</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-cl-8-200.png" alt="Propeller Cl 200N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Lift Coefficient (C_l) Distribution</p>
+                    </div>
+                </div>
+                
+                <h5 style="margin-bottom: 1.5rem;">500 N Thrust per Propeller</h5>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-gamma-8-500.png" alt="Propeller Gamma 500N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Circulation (Γ) Distribution</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-cl-8-500.png" alt="Propeller Cl 500N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Lift Coefficient (C_l) Distribution</p>
+                    </div>
+                </div>
+                
+                <h5 style="margin-bottom: 1.5rem;">800 N Thrust per Propeller</h5>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-gamma-8-800.png" alt="Propeller Gamma 800N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Circulation (Γ) Distribution</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="pics/propeller-cl-8-800.png" alt="Propeller Cl 800N" style="max-width: 280px; width: auto; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Lift Coefficient (C_l) Distribution</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h4 id="key-findings">Key Findings & Physical Interpretation</h4>
+            <div class="highlight-box">
+                <h5>Understanding the Counterintuitive Result</h5>
+                <p>The observation that propeller regions have smaller $C_l$ values despite increased flow velocity may seem counterintuitive. However, this can be explained by examining the relationship between lift coefficient, circulation, and freestream velocity:</p>
+                
+                <div style="text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+                    $$
+                    C_l = \frac{\Gamma}{\frac{1}{2}\rho V_{\infty} c}
+                    $$
+                </div>
+                
+                <p>For constant density ($\rho$) and chord length ($c$), this simplifies to:</p>
+                
+                <div style="text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+                    $$
+                    C_l \propto \frac{\Gamma}{V_{\infty}}
+                    $$
+                </div>
+                
+                <p><strong>Physical Explanation:</strong> Although increasing propeller thrust produces larger circulation ($\Gamma$) at the wing edges, it also increases the freestream velocity ($V_{\infty}$) by an even greater degree. Since $C_l$ is proportional to the ratio $\Gamma/V_{\infty}$, the net effect is a reduction in $C_l$ in the propeller-affected regions compared to the center of the wing.</p>
+                
+                <h5>Conclusions</h5>
+                <ul>
+                    <li>For both non-propeller and propeller cases, $C_l$ vs. effective AOA maintains a linear relationship until reaching the stall point at approximately $13.75°$ for the NACA 0012 airfoil</li>
+                    <li>Propellers lead to increased circulation in the portions of the wing they cover, but this is accompanied by proportionally greater increases in freestream velocity</li>
+                    <li>The net result is marginally smaller $C_l$ values in propeller-affected regions compared to the center wing sections</li>
+                    <li>The $C_l$ distribution remains relatively insensitive to changes in propeller thrust level</li>
+                </ul>
+            </div>
+            
             <h2 id="technologies">Technologies & Tools</h2>
             <div class="tech-stack">
+                <span class="tech-tag">Finite Wing Analysis</span>
+                <span class="tech-tag">Lifting Line Theory</span>
+                <span class="tech-tag">Aerodynamics</span>
                 <span class="tech-tag">MATLAB</span>
                 <span class="tech-tag">Panel Methods</span>
-                <span class="tech-tag">Aerodynamics</span>
-                <span class="tech-tag">Vortex Methods</span>
-                <span class="tech-tag">Propeller Theory</span>
                 <span class="tech-tag">Numerical Methods</span>
             </div>
 
             <h2 id="links">Project Links</h2>
             <div class="project-links">
-                <a href="#" target="_blank">🔗 View on GitHub</a>
-                <a href="#" target="_blank">📖 Documentation</a>
+                <a href="https://github.com/jonathanavillegas/aerodynamics" target="_blank">🔗 View on GitHub</a>
+                <a href="https://www.youtube.com/@prof.vanburen" target="_blank">📺 Learn More: Lifting Line Theory</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Jonathan Villegas</p>
+        <p>&copy; 2026 Jonathan Villegas</p>
     </footer>
     
     <script>
@@ -517,13 +964,19 @@
                 
                 if (!link || link.tagName !== 'A') return;
                 
-                // Prevent default navigation when clicking on parent items
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    item.classList.toggle('collapsed');
-                });
+                // Find the collapse arrow within the link
+                const arrow = link.querySelector('.collapse-arrow');
                 
+                if (arrow) {
+                    // Clicking the arrow should toggle collapse and prevent navigation
+                    arrow.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        item.classList.toggle('collapsed');
+                    });
+                }
+                
+                // The link itself should navigate normally (no preventDefault)
                 // Allow child links to navigate normally
                 const childLinks = item.querySelectorAll('ul a');
                 childLinks.forEach(childLink => {

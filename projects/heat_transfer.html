@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CFD Heat Transfer Solver - Project Details</title>
+    <title>Finit Difference Heat Transfer Solver - Project Details</title>
     <link rel="stylesheet" href="../styles.css">
     <script>
         window.MathJax = {
@@ -188,21 +188,31 @@
         }
         
         .sidebar li.has-children > a {
-            cursor: pointer;
             position: relative;
             padding-right: 1.5rem;
         }
         
-        .sidebar li.has-children > a::after {
-            content: '▶';
+        .sidebar li.has-children > a .collapse-arrow {
             position: absolute;
             right: 0.5rem;
             font-size: 0.7rem;
-            transition: transform 0.2s ease;
             color: #666;
+            cursor: pointer;
+            user-select: none;
+            pointer-events: auto;
+            padding: 0.2rem 0.3rem;
+            margin: -0.2rem -0.3rem;
         }
         
-        .sidebar li.has-children:not(.collapsed) > a::after {
+        .sidebar li.has-children.collapsed > a .collapse-arrow {
+            display: inline;
+        }
+        
+        .sidebar li.has-children.collapsed > a .collapse-arrow::after {
+            content: '▶';
+        }
+        
+        .sidebar li.has-children:not(.collapsed) > a .collapse-arrow::after {
             content: '▼';
         }
         
@@ -642,11 +652,11 @@
                 <li><a href="#overview" class="h2-link">Overview</a></li>
                 <li><a href="#key-features" class="h3-link">Key Features</a></li>
                 <li class="has-children">
-                    <a href="#use-case" class="h2-link">Demonstrated Use Case</a>
+                    <a href="#use-case" class="h2-link">Demonstrated Use Case<span class="collapse-arrow"></span></a>
                     <ul>
                         <li><a href="#mission" class="h3-link">The Mission</a></li>
                         <li class="has-children">
-                            <a href="#methodology" class="h3-link">Model Methodology</a>
+                            <a href="#methodology" class="h3-link">Model Methodology<span class="collapse-arrow"></span></a>
                             <ul>
                                 <li><a href="#heat-transfer-eq" class="h4-link">Heat Transfer Equation</a></li>
                                 <li><a href="#discretization" class="h4-link">Discretization</a></li>
@@ -934,7 +944,8 @@
 
         <h2 id="links">Project Links</h2>
         <div class="project-links">
-            <a href="https://github.com/jonathanavillegas/cfd" target="_blank">🔗 View on GitHub</a>
+            <a href="https://github.com/jonathanavillegas/heat_transfer" target="_blank">🔗 View on GitHub</a>
+            <a href="https://www.youtube.com/@sandipmazumder171" target="_blank">📺 Learn More: Finite Difference Methods</a>
         </div>
         </div>
     </div>
@@ -962,13 +973,19 @@
                 
                 if (!link || link.tagName !== 'A') return;
                 
-                // Prevent default navigation when clicking on parent items
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    item.classList.toggle('collapsed');
-                });
+                // Find the collapse arrow within the link
+                const arrow = link.querySelector('.collapse-arrow');
                 
+                if (arrow) {
+                    // Clicking the arrow should toggle collapse and prevent navigation
+                    arrow.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        item.classList.toggle('collapsed');
+                    });
+                }
+                
+                // The link itself should navigate normally (no preventDefault)
                 // Allow child links to navigate normally
                 const childLinks = item.querySelectorAll('ul a');
                 childLinks.forEach(childLink => {
