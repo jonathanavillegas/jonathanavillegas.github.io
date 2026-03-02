@@ -399,7 +399,7 @@
                 <li><a href="#overview" class="h2-link">Overview</a></li>
                 <li><a href="#key-features" class="h3-link">Key Features</a></li>
                 <li class="has-children">
-                    <a href="#use-case" class="h2-link">Demonstrated Use Case<span class="collapse-arrow"></span></a>
+                    <a href="#use-case" class="h2-link">Draw-to-GCode<span class="collapse-arrow"></span></a>
                     <ul>
                         <li><a href="#mission" class="h3-link">The Mission</a></li>
                         <li class="has-children">
@@ -412,8 +412,6 @@
                         <li><a href="#results" class="h3-link">Results</a></li>
                     </ul>
                 </li>
-                <li><a href="#model-efficacy" class="h2-link">Model Efficacy</a></li>
-                <li><a href="#future-work" class="h2-link">Future Work</a></li>
                 <li><a href="#technologies" class="h2-link">Technologies & Tools</a></li>
                 <li><a href="#links" class="h2-link">Project Links</a></li>
             </ul>
@@ -434,18 +432,10 @@
                         <h4>Auto Z-Axis Homing</h4>
                         <p>Intelligent automatic Z-axis homing system that safely establishes workpiece zero, preventing crashes and ensuring consistent machining depth</p>
                     </div>
-                    <div class="application-card">
-                        <h4>Real-Time Preview</h4>
-                        <p>Visual preview of toolpaths before execution, allowing students to verify designs and catch errors before material cutting begins</p>
-                    </div>
-                    <div class="application-card">
-                        <h4>Educational Focus</h4>
-                        <p>Streamlined interface designed for educational environments, enabling rapid prototyping and iterative design learning</p>
-                    </div>
                 </div>
             </div>
             
-            <h2 id="use-case">Demonstrated Use Case: Educational CNC Workflow</h2>
+            <h2 id="use-case">Draw-to-GCode</h2>
 
             <h3 id="mission">The Mission</h3>
             <p>Create an intuitive software solution that allows students to design parts on a computer and seamlessly transition to physical manufacturing on a CNC machine, reducing the learning curve and technical barriers associated with traditional CAM software.</p>
@@ -464,22 +454,9 @@
 
             <h4 id="auto-z-homing">Auto Z-Axis Homing</h4>
             <p>The auto Z-homing feature automatically establishes the workpiece zero point by safely probing the material surface. This eliminates manual setup errors and ensures consistent machining depth across multiple parts.</p>
-            <p>The system implements:</p>
-            <ul>
-                <li><strong>Touch Probe Integration:</strong> Automated surface detection using touch probe or contact sensing</li>
-                <li><strong>Safety Protocols:</strong> Slow approach speeds and collision detection to prevent machine damage</li>
-                <li><strong>Zero Point Calibration:</strong> Automatic setting of workpiece coordinate system origin</li>
-                <li><strong>Error Handling:</strong> Detection and reporting of homing failures with safe machine shutdown</li>
-            </ul>
 
             <h3 id="results">Results</h3>
             <p>The software successfully enables students to go from concept to physical part in minutes rather than hours. The automated GCode generation and Z-homing features eliminate common setup errors and reduce the technical knowledge required to operate CNC machines, making manufacturing more accessible in educational settings.</p>
-
-            <h2 id="model-efficacy">Model Efficacy</h2>
-            <p>The draw2gcode conversion system accurately translates 2D designs into executable GCode, maintaining design fidelity while optimizing toolpaths for efficiency. The auto Z-homing feature consistently establishes accurate workpiece zero points, reducing setup time and eliminating manual measurement errors.</p>
-
-            <h2 id="future-work">Future Work</h2>
-            <p>Future enhancements could include 3D toolpath generation, advanced material libraries, simulation capabilities for collision detection, and integration with additional CNC controller protocols.</p>
 
             <h2 id="technologies">Technologies & Tools</h2>
             <div class="tech-stack">
@@ -493,8 +470,7 @@
 
             <h2 id="links">Project Links</h2>
             <div class="project-links">
-                <a href="#" target="_blank">🔗 View on GitHub</a>
-                <a href="#" target="_blank">📖 Documentation</a>
+                <a href="https://github.com/jonathanavillegas/draw2gcode" target="_blank">🔗 View on GitHub</a>
             </div>
         </div>
     </div>

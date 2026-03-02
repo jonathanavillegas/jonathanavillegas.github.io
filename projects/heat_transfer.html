@@ -664,7 +664,13 @@
                                 <li><a href="#numerical-methods" class="h4-link">Numerical Methods</a></li>
                             </ul>
                         </li>
-                        <li><a href="#results" class="h3-link">Results</a></li>
+                        <li class="has-children">
+                            <a href="#results" class="h3-link">Results<span class="collapse-arrow"></span></a>
+                            <ul>
+                                <li><a href="#results-surface-evolution" class="h4-link">Transient Surface Evolution</a></li>
+                                <li><a href="#results-mass-destroyed" class="h4-link">Total Mass Destroyed</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#model-efficacy" class="h2-link">Model Efficacy</a></li>
@@ -910,7 +916,18 @@
         </ul>
 
         <h3 id="results">Results</h3>
-        <p></p>
+        <p>The final simulation was performed over a time of 100 seconds with a time step of 0.5 seconds</p>
+
+        <h4 id="results-surface-evolution">Transient Surface Evolution</h4>
+        <p>The following video shows the surface change through the transient, illustrating how the ablative surface recedes over time under the applied heat flux. The surface recession distribution is in line with the provided heat flux distribution.</p>
+        <video src="pics/final_transience.mp4" class="card-media" controls muted loop autoplay preload="metadata" onerror="this.style.display='none'" style="max-width: 900px; width: 100%; height: auto; border-radius: 8px;"></video>
+
+        <h4 id="results-mass-destroyed">Total Mass Destroyed</h4>
+        <p>The total mass destroyed (ablated) over the simulation:</p>
+        <div class="method-card" style="max-width: 500px;">
+            <p style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #666;">Total mass destroyed</p>
+            <p style="margin: 0; font-size: 1.75rem; font-weight: 700; color: #1e88e5;">0.0852 kg</p>
+        </div>
 
         <h2 id="model-efficacy">Model Efficacy</h2>
         <ul>
