@@ -354,6 +354,27 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(30, 136, 229, 0.4);
         }
+
+        .results-videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .results-videos .video-item {
+            flex: 1 1 280px;
+            min-width: 0;
+        }
+        .results-videos .video-item p {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        .results-videos .video-item video {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 8px;
+        }
         
         @media (max-width: 1000px) {
             .content-wrapper {
@@ -457,6 +478,17 @@
 
             <h3 id="results">Results</h3>
             <p>The software successfully enables students to go from concept to physical part in minutes rather than hours. The automated GCode generation and Z-homing features eliminate common setup errors and reduce the technical knowledge required to operate CNC machines, making manufacturing more accessible in educational settings.</p>
+
+            <div class="results-videos">
+                <div class="video-item">
+                    <p><strong>Draw-to-GCode</strong></p>
+                    <video src="pics/draw2gcode.mp4" controls muted loop autoplay preload="metadata" onerror="this.style.display='none'"></video>
+                </div>
+                <div class="video-item">
+                    <p><strong>CAM full process</strong></p>
+                    <video src="pics/cam_full_process.mp4" controls muted loop autoplay preload="metadata" onerror="this.style.display='none'"></video>
+                </div>
+            </div>
 
             <h2 id="technologies">Technologies & Tools</h2>
             <div class="tech-stack">
