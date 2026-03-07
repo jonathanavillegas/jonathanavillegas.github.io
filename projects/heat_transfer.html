@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finit Difference Heat Transfer Solver - Project Details</title>
+    <title>Finite Difference Heat Transfer Solver - Project Details</title>
     <link rel="stylesheet" href="../styles.css">
     <script>
         window.MathJax = {
@@ -916,7 +916,7 @@
         </ul>
 
         <h3 id="results">Results</h3>
-        <p>The final simulation was performed over a time of 100 seconds with a time step of 0.5 seconds</p>
+        <p>The final simulation was performed over 100 seconds with a time step of 0.5 seconds</p>
 
         <h4 id="results-surface-evolution">Transient Surface Evolution</h4>
         <p>The following video shows the surface change through the transient, illustrating how the ablative surface recedes over time under the applied heat flux. The surface recession distribution is in line with the provided heat flux distribution.</p>
@@ -931,19 +931,19 @@
 
         <h2 id="model-efficacy">Model Efficacy</h2>
         <ul>
-            <li><strong>2nd Order Spatial Accuracy:</strong> 1D and 2D steady-state solvers are second-order accurate in space. Ghost nodes are employed to handle flux boundary conditions, maintaining second-order accuracy at the boundary.</strong></li>
-            <li><strong>1st Order Temporal Accuracy:</strong> 2D transient solvers are first-order accurate in time. Models are designed for small time steps to ensure accuracy.</strong></li>
-            <li><strong>Hand Calculations:</strong> 1D steady-state thermal solvers were validated using hand calculation with a variety of boundary conditions. Results were compared to the simulation results and the error was found to be less than 1%.</strong></li>
-            <li><strong>Grid Convergence:</strong> Solvers were run with different grid resolutions and the results were compared. Cases were found to be within 1% difference.</strong></li>
+            <li><strong>2nd Order Spatial Accuracy:</strong> 1D and 2D steady-state solvers are second-order accurate in space. Ghost nodes are employed to handle flux boundary conditions, maintaining second-order accuracy at the boundary.</li>
+            <li><strong>1st Order Temporal Accuracy:</strong> 2D transient solvers are first-order accurate in time. Models are designed for small time steps to ensure accuracy.</li>
+            <li><strong>Hand Calculations:</strong> 1D steady-state thermal solvers were validated using hand calculations with a variety of boundary conditions. Results were compared to the simulation results and the error was found to be less than 1%.</li>
+            <li><strong>Grid Convergence:</strong> Solvers were run with different grid resolutions and the results were compared. Cases were found to be within 1% difference.</li>
         </ul>
 
         <h2 id="future-work">Future Work</h2>
         <ul>
-            <li><strong>2D Transient and Steady-State Validation:</strong> 2D transient and steady-state solvers will be validated against commerical solvers (Thermal Desktop).</li>
-            <li><strong>Ablation Modeling Validation:</strong> Ablation modeling will be validated against NASA's Porous-material Analysis Toolbox (PATO)</li>
+            <li><strong>2D Transient and Steady-State Validation:</strong> 2D transient and steady-state solvers will be validated against commercial solvers (Thermal Desktop).</li>
+            <li><strong>Ablation Modeling Validation:</strong> Ablation modeling will be validated against NASA's Porous-material Analysis Toolbox (PATO).</li>
             <li><strong>Non-Symmetric Heat Flux Distribution:</strong> Heat shields entering at non-zero attack angles will be modeled, taking advantage of the solver's 3D capabilities.</li>
             <li><strong>Higher Order Accuracy:</strong> Higher order finite difference schemes will be implemented to improve the accuracy of the solvers.</li>
-            <li><strong>Iterative Solving Methods:</strong> Higher order schemes often necessitate the use of iterative/implicit solving methods (ie. Gauss-Seidel method)to handle the computational cost.</li>
+            <li><strong>Iterative Solving Methods:</strong> Higher order schemes often necessitate the use of iterative/implicit solving methods (e.g., Gauss-Seidel method) to handle the computational cost.</li>
         </ul>
         
         <h2 id="technologies">Technologies & Tools</h2>
