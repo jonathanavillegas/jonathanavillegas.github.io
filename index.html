@@ -266,6 +266,28 @@
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
+
+        .about-pics-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .about-pics-row img {
+            width: 280px;
+            max-width: 100%;
+            height: 280px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: #f5f5f5;
+        }
+        .about-pics-row .about-pic-item:first-child img {
+            width: 340px;
+            height: 340px;
+        }
         
         .about-text {
             flex: 1;
@@ -276,6 +298,33 @@
             color: #444;
             line-height: 1.8;
             margin-bottom: 1.5rem;
+        }
+        .about-text strong {
+            font-weight: 700;
+            color: #1e3c72;
+        }
+        .about-free-time-lead {
+            color: #1e88e5 !important;
+        }
+        .about-free-time-lead-wrap {
+            margin: 0 0 0.5rem 0;
+            text-align: left;
+        }
+        .about-pics-row {
+            margin-top: 0;
+        }
+        .about-pic-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1 1 200px;
+        }
+        .about-pic-caption {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 0.5rem 0;
         }
         
         #projects h2 {
@@ -716,12 +765,27 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>I am a Thermal/Hydraulic Nuclear Engineer at Naval Nuclear Laboratory. I model fluid and thermal behavior in nuclear reactors and analyze thermal effects to optimize reactor performance.</p>
-                <p>I graduated Magna Cum Laude with a B.S.E. in Mechanical Engineering from the University of Pennsylvania in 2025. I concentrated in Energy, Fluids, & Thermal Systems and minored in Mathematics. In my spare time, I like to hike sections of the Appalachian Trail, cook coconut curry, and paint portraits.</p>
-                <p>I'm passionate about solving thermal engineering problems with applications in clean energy and aerodynamics. My experience spans nuclear engineering, thermal analysis, and computational modeling, with a strong foundation in thermodynamics, fluid mechanics, and heat/mass transfer.</p>
+                <p>I am a <strong>Thermal/Hydraulic Nuclear Engineer</strong> at <strong>Naval Nuclear Laboratory</strong>. I model fluid and thermal behavior in nuclear reactors and analyze thermal effects to optimize reactor performance.</p>
+                <p>I graduated <strong>Magna Cum Laude</strong> with a <strong>B.S.E. in Mechanical Engineering</strong> from the <strong>University of Pennsylvania</strong> in 2025. I concentrated in <strong>Energy, Fluids, & Thermal Systems</strong> and minored in Mathematics. </p>
+                <p>I'm passionate about solving thermal engineering problems with applications in <strong>clean energy</strong> and <strong>aerodynamics</strong>. My experience spans nuclear engineering, thermal analysis, and computational modeling, with a strong foundation in thermodynamics, fluid mechanics, and heat/mass transfer.</p>
             </div>
             <div class="profile-picture">
                 <img src="pics/profile_pic.JPG" alt="Jonathan Villegas" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <p class="about-free-time-lead-wrap"><strong class="about-free-time-lead">In my free time I am...</strong></p>
+        <div class="about-pics-row">
+            <div class="about-pic-item">
+                <p class="about-pic-caption">Hiking sections of the Appalachian Trail</p>
+                <img src="pics/IMG_3525.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="about-pic-item">
+                <p class="about-pic-caption">Cooking coconut curry</p>
+                <img src="pics/IMG_1434.png" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="about-pic-item">
+                <p class="about-pic-caption">And painting portraits</p>
+                <img src="pics/FullSizeRender-preview.png" alt="" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
