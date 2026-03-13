@@ -465,16 +465,13 @@
 
             <h4 id="draw2gcode">Draw-to-GCode Conversion</h4>
             <p>The draw2gcode functionality processes 2D vector drawings and converts them into optimized GCode toolpaths. The system analyzes drawing geometry, determines optimal cutting sequences, and generates machine commands that control tool movement, feed rates, and spindle speeds.</p>
-            <p>Key capabilities include:</p>
+            <p>Additional features include:</p>
             <ul>
-                <li><strong>Path Optimization:</strong> Automatic determination of efficient cutting paths to minimize machining time</li>
-                <li><strong>Tool Selection:</strong> Integration with tool libraries to select appropriate cutting tools based on geometry</li>
-                <li><strong>Feed Rate Calculation:</strong> Automatic calculation of optimal feed rates based on material properties and tool specifications</li>
+                <li><strong>Automatic Z-Axis Homing:</strong> Protocol enabling machine to automatically track to z-homing touch probe, finding material surface without user input</li>
+                <li><strong>Tool Path Prioritization Logic:</strong> Automatic determination and prioritization of internal vs. external tool paths based, allowing for safe machine operations</li>
+                <li><strong>Automatic Design Scaling:</strong> Software automatically scales the design to the desired machine size, allowing for easy and accurate machining of different sized parts</li>
                 <li><strong>Multi-Pass Support:</strong> Automatic generation of multiple depth passes for deep cuts</li>
             </ul>
-
-            <h4 id="auto-z-homing">Auto Z-Axis Homing</h4>
-            <p>The auto Z-homing feature automatically establishes the workpiece zero point by safely probing the material surface. This eliminates manual setup errors and ensures consistent machining depth across multiple parts.</p>
 
             <h3 id="results">Results</h3>
             <p>The software successfully enables students to go from concept to physical part in minutes rather than hours. The automated GCode generation and Z-homing features eliminate common setup errors and reduce the technical knowledge required to operate CNC machines, making manufacturing more accessible in educational settings.</p>
